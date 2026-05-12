@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
 
@@ -125,16 +125,22 @@
   * {
     border-color: var(--color-border);
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
   }
-  h1, h2, h3, h4 {
+
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -143,37 +149,84 @@
 @layer utilities {
   .bg-confetti {
     background-image:
-      radial-gradient(circle at 10% 20%, color-mix(in oklab, var(--pink-soft) 60%, transparent) 0 6px, transparent 7px),
-      radial-gradient(circle at 80% 15%, color-mix(in oklab, var(--blue-soft) 60%, transparent) 0 5px, transparent 6px),
-      radial-gradient(circle at 30% 80%, color-mix(in oklab, var(--yellow-soft) 70%, transparent) 0 7px, transparent 8px),
-      radial-gradient(circle at 70% 70%, color-mix(in oklab, var(--mint-soft) 60%, transparent) 0 5px, transparent 6px),
-      radial-gradient(circle at 50% 40%, color-mix(in oklab, var(--orange-soft) 60%, transparent) 0 4px, transparent 5px);
+      radial-gradient(circle at 10% 20%,
+        color-mix(in oklab, var(--pink-soft) 60%, transparent) 0 6px,
+        transparent 7px),
+      radial-gradient(circle at 80% 15%,
+        color-mix(in oklab, var(--blue-soft) 60%, transparent) 0 5px,
+        transparent 6px),
+      radial-gradient(circle at 30% 80%,
+        color-mix(in oklab, var(--yellow-soft) 70%, transparent) 0 7px,
+        transparent 8px),
+      radial-gradient(circle at 70% 70%,
+        color-mix(in oklab, var(--mint-soft) 60%, transparent) 0 5px,
+        transparent 6px),
+      radial-gradient(circle at 50% 40%,
+        color-mix(in oklab, var(--orange-soft) 60%, transparent) 0 4px,
+        transparent 5px);
     background-size: 600px 600px;
   }
+
   .text-gradient-warm {
-    background: linear-gradient(110deg, var(--orange-soft), var(--pink-soft) 40%, var(--blue-soft));
+    background: linear-gradient(110deg, oklch(0.75 0.15 45), oklch(0.75 0.15 15) 40%, oklch(0.75 0.1 240));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .shadow-soft { box-shadow: var(--shadow-soft); }
-  .shadow-pop { box-shadow: var(--shadow-pop); }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-pop {
+    box-shadow: var(--shadow-pop);
+  }
 
   @keyframes float-y {
-    0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
-    50% { transform: translateY(-18px) rotate(var(--r, 0deg)); }
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--r, 0deg));
+    }
+
+    50% {
+      transform: translateY(-18px) rotate(var(--r, 0deg));
+    }
   }
-  .animate-float { animation: float-y 6s ease-in-out infinite; }
+
+  .animate-float {
+    animation: float-y 6s ease-in-out infinite;
+  }
 
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  .animate-fade-up { animation: fade-up 0.8s ease-out both; }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out both;
+  }
 
   @keyframes wiggle {
-    0%, 100% { transform: rotate(-2deg); }
-    50% { transform: rotate(2deg); }
+
+    0%,
+    100% {
+      transform: rotate(-2deg);
+    }
+
+    50% {
+      transform: rotate(2deg);
+    }
   }
-  .animate-wiggle { animation: wiggle 4s ease-in-out infinite; }
+
+  .animate-wiggle {
+    animation: wiggle 4s ease-in-out infinite;
+  }
 }
